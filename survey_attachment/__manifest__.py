@@ -8,6 +8,8 @@
     'description': """
         Add attachment to survey
     """,
+    'author': "Fogits Solutions",
+    'images': ['static/description/survey.jpg'],
     'depends': ["base","survey","website"],
     'data': [
         'views/survey_question_template.xml',
