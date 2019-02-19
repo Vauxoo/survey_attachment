@@ -3,7 +3,7 @@
 {
     'name': 'Survey Attachment',
     'summary': """
-    This module add new type of question on Survey Upload file """,
+    This module add new type of question on Survey Upload file. """,
     'version': '11.0',
     'website': "https://www.fogits.com/",
     'category': 'Survey',
