@@ -1,16 +1,23 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-
+import json
 import logging
+import werkzeug
+from datetime import datetime
+from math import ceil
+
 from odoo import fields, http, SUPERUSER_ID
-from odoo.addons.survey.controllers.main import WebsiteSurvey
 from odoo.http import request
+from odoo.tools import ustr
+from odoo.addons.survey.controllers.main import Survey
+from odoo.http import request
+import html2text
 
 _logger = logging.getLogger(__name__)
 
 
-class WebsiteSurveyExtend(WebsiteSurvey):
+class WebsiteSurveyExtend(Survey):
     # Printing routes
     @http.route(['/survey/print/<model("survey.survey"):survey>',
                  '/survey/print/<model("survey.survey"):survey>/<string:token>'],

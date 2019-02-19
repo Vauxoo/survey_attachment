@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
     <!-- A page -->
     <template id="survey.page" name="Page">
         <div class="page-header">
@@ -57,16 +56,16 @@
 
     <!-- Printable view of a survey (all pages) -->
     <template id="survey.survey_print" name="Survey">
-        <t t-call="website.layout">
+        <t t-call="survey.layout">
             <div class="wrap">
                 <div class="container">
                     <t t-call="survey.back" />
                     <div class="row">
-                        <div class='jumbotron mt32'>
+                        <div class='jumbotron mt32' style="width:100%;">
                             <h1><span t-field='survey.title'/></h1>
                             <t t-if="survey.description"><div t-field='survey.description' class="oe_no_empty"/></t>
                         </div>
-                        <div role="form" class="js_surveyform" t-att-name="'%s' % (survey.id)" t-att-data-prefill="'/survey/prefill/%s/%s' % (slug(survey), token)">
+                        <div role="form" class="js_surveyform" t-att-name="'%s' % (survey.id)" t-att-data-prefill="'/survey/prefill/%s/%s' % (slug(survey), token)" style="width: -moz-available;">
                             <t t-foreach="survey.page_ids" t-as="page">
                                 <div class="page-header">
                                     <h1 t-field='page.title' />
@@ -104,7 +103,6 @@
     <template id="upload_file" name="Upload file">
         <div class="input-file-container">
 
-
             <t t-if="user_input_line_upload_file">
                 <t t-foreach="user_input_line_upload_file" t-as="upload_file" t-if="upload_file.question_id.id == question.id">
                     <t t-if="upload_file.file_type == 'pdf'">
@@ -116,12 +114,10 @@
                 </t>
             </t>
             <t t-else="">
-                <div class="file-field">
-                    <div class="btn btn-primary btn-sm float-left">
-                        <span>Choose file</span>
-                        <input class="input-file" id="my-file" type="file" accept="image/*,application/pdf" t-att-name="prefix"/>
-                    </div>
+                <div class="file-field" >
+                    <input class="input-file" id="my-file" type="file" accept="image/*,application/pdf" t-att-name="prefix"/>
                 </div>
+                <br/>
             </t>
         </div>
 
