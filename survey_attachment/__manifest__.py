@@ -3,7 +3,7 @@
 {
     'name': 'Survey Attachment',
     'summary': """
-      This module add new type of question on Survey Upload file """,
+        An easy way to attach a file to your survey. This functionality is realized through choosing the type of questions beforehand; then uploading the file.""",
     'version': '12.0',
     'category': 'Survey',
     'description': """
